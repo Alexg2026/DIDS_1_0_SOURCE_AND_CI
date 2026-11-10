@@ -21,6 +21,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - run: npm ci
+      - run: npm test
+      - name: Legacy gameplay regression
+        working-directory: game/legacy_v34
+        run: node QA/test_v31_logic.js
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser
       - run: python -m unittest discover -s tests -v
       - run: python scripts/dids.py build
       - uses: actions/upload-artifact@v4
@@ -28,5 +35,7 @@ jobs:
           name: dids-approved-candidate-${{ github.run_number }}
           path: |
             dist/*.zip
-            reports/qa.json
+            reports/
+            playwright-report/
+            test-results/
           retention-days: 30

@@ -1,7 +1,7 @@
 {
   "project": "ОСТРОВ МЕЧТЫ",
   "pipeline": "DIDS",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "game_source": "game/legacy_v34",
   "entrypoint": "ОСТРОВ_МЕЧТЫ_V34_ИГРАТЬ.html",
   "cameras": [
