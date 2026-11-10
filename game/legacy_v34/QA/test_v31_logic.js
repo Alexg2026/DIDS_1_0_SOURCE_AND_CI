@@ -6,13 +6,14 @@ const document={body:{classList:{add(){},remove(){}}},getElementById:el,createEl
 const window={addEventListener(){}};
 const runtime={console,document,window,Image:function(){this.complete=true;this.width=400;this.height=500},HTMLImageElement:function(){},Math,Set,Map,Float32Array,Array,Number,JSON,String,Date,performance:{now(){return 1}},requestAnimationFrame(){},setTimeout(){},};
 vm.createContext(runtime);
+for(const name of ['config','world','state','ai','camera','metrics','rendering'])vm.runInContext(fs.readFileSync('modules/'+name+'.js','utf8'),runtime);
 vm.runInContext(fs.readFileSync('game.js','utf8'),runtime);
 const t=window.__V31_TEST__,g=t.getGame();let assertions=0;
 function check(k,v){assertions++;if(!v)throw Error(k);console.log('PASS',k)}
 check('5 active CCTV feeds',Object.keys(t.states).length===5);
 check('50 camera frame paths',Object.values(t.states).every(a=>a.length===10));
 check('first-person canvas starts',g.p.x===23.5&&g.p.a===-Math.PI/2);
-check('Night ends 07:00',vm.runInContext('DAY_SECONDS===360',runtime));
+check('Night ends 07:00',vm.runInContext('window.DIDS.config.DAY_SECONDS===360',runtime));
 check('map has accessible routes CAM10 to CAM16',t.bfs(5,5,23,15).length>0);
 check('map has accessible routes CAM14 to CAM15',t.bfs(23,5,14,15).length>0);
 check('starting point is walkable',t.grid[15][23]===0);

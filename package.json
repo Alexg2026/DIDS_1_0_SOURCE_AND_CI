@@ -1,0 +1,13 @@
+{
+  "name": "dids",
+  "version": "1.1.0",
+  "private": true,
+  "description": "DIDS browser regression and performance checks",
+  "scripts": {
+    "test": "node --test tests/modules.test.cjs",
+    "test:browser": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.0"
+  }
+}

@@ -40,7 +40,7 @@ def audit():
  if CFG['art_status']=='NOT_FINAL_ART_APPROVED':warnings.append('Camera art is technical/gameplay material, not FINAL ART APPROVED')
  node=shutil.which('node')
  if node:
-  for js in sorted(SRC.glob('*.js')):
+  for js in sorted(SRC.rglob('*.js')):
    result=subprocess.run([node,'--check',str(js)],capture_output=True,text=True)
    if result.returncode:errors.append(f'JS syntax {js.name}: {result.stderr.strip()}')
  else:warnings.append('Node.js not installed; JavaScript syntax check skipped')

@@ -32,3 +32,32 @@ jobs:
             dist/*.zip
           if-no-files-found: warn
           retention-days: 14
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm ci
+      - run: npm test
+      - name: Legacy gameplay regression
+        working-directory: game/legacy_v34
+        run: node QA/test_v31_logic.js
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser
+      - name: Upload browser tests and performance reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dids-browser-${{ github.run_number }}
+          path: |
+            reports/
+            playwright-report/
+            test-results/
+          retention-days: 14
