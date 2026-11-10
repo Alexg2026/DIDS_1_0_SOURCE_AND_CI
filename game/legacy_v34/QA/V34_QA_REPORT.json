@@ -1,0 +1,7 @@
+{
+  "version": "V34",
+  "js_syntax": "PASS",
+  "cctv_states": 50,
+  "renderer": "WebGL1 volumetric procedural animated animatronics",
+  "browser_playthrough": "NOT_RUN"
+}

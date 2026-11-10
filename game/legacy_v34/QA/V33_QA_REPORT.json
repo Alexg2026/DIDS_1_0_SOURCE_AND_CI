@@ -1,0 +1,8 @@
+{
+  "cctv_webp_count": 50,
+  "camera_count": 5,
+  "renderer_syntax": true,
+  "game_syntax": true,
+  "local_no_cdn": true,
+  "browser_e2e": "not_run_browser_navigation_blocked"
+}

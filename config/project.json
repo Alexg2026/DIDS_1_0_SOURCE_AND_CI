@@ -1,0 +1,22 @@
+{
+  "project": "ОСТРОВ МЕЧТЫ",
+  "pipeline": "DIDS",
+  "version": "1.0.0",
+  "game_source": "game/legacy_v34",
+  "entrypoint": "ОСТРОВ_МЕЧТЫ_V34_ИГРАТЬ.html",
+  "cameras": [
+    "CAM10",
+    "CAM13",
+    "CAM14",
+    "CAM15",
+    "CAM16"
+  ],
+  "states_per_camera": 10,
+  "expected_resolution": [
+    1920,
+    1080
+  ],
+  "central_power_initially_on": false,
+  "art_status": "NOT_FINAL_ART_APPROVED",
+  "build_name": "OSTROV_MECHTY_V34_DIDS"
+}

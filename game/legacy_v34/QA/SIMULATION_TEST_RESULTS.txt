@@ -1,0 +1,14 @@
+PASS 5 active CCTV feeds
+PASS 50 camera frame paths
+PASS first-person canvas starts
+PASS Night ends 07:00
+PASS map has accessible routes CAM10 to CAM16
+PASS map has accessible routes CAM14 to CAM15
+PASS starting point is walkable
+PASS night starts
+PASS key pickup
+PASS fuse pickup
+PASS generator can be restored
+PASS 07:00 victory
+PASS reset restores power OFF
+ASSERTIONS 13

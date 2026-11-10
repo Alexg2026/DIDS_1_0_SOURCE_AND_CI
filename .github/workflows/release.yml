@@ -1,0 +1,32 @@
+name: DIDS Manual Candidate
+on:
+  workflow_dispatch:
+    inputs:
+      approval:
+        description: 'Type APPROVED to prepare a release candidate (does not publish a release)'
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  candidate:
+    if: inputs.approval == 'APPROVED'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python -m unittest discover -s tests -v
+      - run: python scripts/dids.py build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dids-approved-candidate-${{ github.run_number }}
+          path: |
+            dist/*.zip
+            reports/qa.json
+          retention-days: 30

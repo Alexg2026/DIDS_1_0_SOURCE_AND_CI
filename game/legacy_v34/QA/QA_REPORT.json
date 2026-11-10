@@ -1,0 +1,41 @@
+{
+  "version": "V31",
+  "status": "SIMULATION_QA_PASSED_BROWSER_NOT_MANUALLY_VERIFIED",
+  "cameras": [
+    "CAM10",
+    "CAM13",
+    "CAM14",
+    "CAM15",
+    "CAM16"
+  ],
+  "cctv_frame_count": 50,
+  "frame_resolution_counts": {
+    "(1920, 1080)": 50
+  },
+  "animatronic_asset_count": 5,
+  "js_syntax_pass": true,
+  "node_simulation_assertions_passed": 13,
+  "node_simulation_output": [
+    "PASS 5 active CCTV feeds",
+    "PASS 50 camera frame paths",
+    "PASS first-person canvas starts",
+    "PASS Night ends 07:00",
+    "PASS map has accessible routes CAM10 to CAM16",
+    "PASS map has accessible routes CAM14 to CAM15",
+    "PASS starting point is walkable",
+    "PASS night starts",
+    "PASS key pickup",
+    "PASS fuse pickup",
+    "PASS generator can be restored",
+    "PASS 07:00 victory",
+    "PASS reset restores power OFF",
+    "ASSERTIONS 13"
+  ],
+  "scope": "Browser-based 2.5D first person raycasting, local assets, movement and CCTV, AI BFS, generator, power, door, win/loss",
+  "limitations": [
+    "Automated browser test was not possible due environment browser navigation blocked by administrator",
+    "All 50 CCTV frames are reused from V30, not newly approved artistic renders",
+    "This is not full pygame-ce/pygbag implementation or true polygonal 3D"
+  ],
+  "sources": "DICF V30 zip and V21 character PNGs"
+}
